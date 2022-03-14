@@ -14,8 +14,10 @@
           </p>
           <p>
             It's your own decision what kind of output you use and in which way
-            it will be disaplyed. For example you can add a list output of some
-            items.
+            it will be displayed, but it should be in a creative way and you can
+            use this possibility to show us your existing skills. For example
+            you can add a list output as a starting point and show additional
+            information in a detail page (or other output types).
           </p>
           <br />
           <p>Here are some examples for a public available API:</p>
@@ -56,25 +58,47 @@
         <div class="mt-5">
           <a
             class="text-blue-600 hover:text-blue-800 cursor-pointer"
-            v-on:click="showNextExercise"
+            v-on:click="showNextExercise('second')"
             >{{
-              showSecondExercise
+              showExercise.second
                 ? 'Hide the next exercise'
                 : 'Show the next exercise'
             }}</a
           >
         </div>
       </section>
-      <section v-if="showSecondExercise" class="mt-10">
+      <section v-if="showExercise.second" class="mt-10">
         <h2 class="font-bold text-2xl leading-6">Exercise 2</h2>
         <div class="mt-5">
           <p>
             As a second exercise you should add an global tost/notify handling
-            in the already extended app.
+            in the already extended app. Maybe you can do this in a easy way
+            with the new composition API.
           </p>
           <p>
             For example you can show a toast after something was fetched from
-            the public API (which you implemented before).
+            the public API (which you implemented before) or also in error
+            situtations.
+          </p>
+        </div>
+        <div class="mt-5">
+          <a
+            class="text-blue-600 hover:text-blue-800 cursor-pointer"
+            v-on:click="showNextExercise('third')"
+            >{{
+              showExercise.third
+                ? 'Hide the next exercise'
+                : 'Show the next exercise'
+            }}</a
+          >
+        </div>
+      </section>
+      <section v-if="showExercise.third" class="mt-10">
+        <h2 class="font-bold text-2xl leading-6">Exercise 3</h2>
+        <div class="mt-5">
+          <p>
+            Please integrate a testing library in the current app. We're pretty
+            sure that you have some components which needs to be tested.
           </p>
         </div>
       </section>
@@ -83,11 +107,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
-const showSecondExercise = ref(false)
+const showExercise = reactive({
+  second: false,
+  third: false,
+})
 
-const showNextExercise = () => {
-  showSecondExercise.value = !showSecondExercise.value
+const showNextExercise = (exercise) => {
+  showExercise[exercise] = !showExercise[exercise]
 }
 </script>
