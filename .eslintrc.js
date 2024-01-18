@@ -3,6 +3,13 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    jest: {
+      moduleFileExtensions: ['js', 'json', 'vue'],
+      transform: {
+        '^.+\\.js$': 'babel-jest',
+        '^.+\\.vue$': 'vue-jest',
+      },
+    },
   },
   plugins: ['vue', 'prettier'],
   extends: [
