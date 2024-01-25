@@ -38,13 +38,10 @@ export const rules = {
     },
   ],
 
-  // Enforce v-bind directive usage in long form.
   'vue/v-bind-style': ['error', 'longform'],
 
-  // Enforce v-on directive usage in long form.
   'vue/v-on-style': ['error', 'longform'],
 
-  // Don't require a default value for the props.
   'vue/require-default-prop': 'off',
 
   'vue/multi-word-component-names': 'off',
@@ -59,5 +56,5 @@ export const globals = {
 export const parser = 'vue-eslint-parser';
 export const parserOptions = {
   sourceType: 'module',
-  ecmaVersion: 2020, // allow the parsing of modern ecmascript
+  ecmaVersion: 2020, 
 };

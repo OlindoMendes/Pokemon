@@ -50,7 +50,6 @@ const search = ref('')
 const emit = defineEmits(['searchPokemon'])
 
 const handleSearch = () => {
-  console.log(search.value)
   emit('searchPokemon', search.value)
 }
 </script>

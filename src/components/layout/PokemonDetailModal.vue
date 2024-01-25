@@ -63,6 +63,7 @@ import useStore from '../../store'
 
 const store = useStore()
 const close = ref('')
+
 const closeModal = () => {
   close.value = false
   store.hideModal(close.value)
