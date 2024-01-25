@@ -44,24 +44,13 @@
   </form>
 </template>
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 const search = ref('')
-const props = defineProps({
-  filteredPokemons: {
-    type: Array,
-  },
-})
-
 const emit = defineEmits(['searchPokemon'])
 
 const handleSearch = () => {
   console.log(search.value)
   emit('searchPokemon', search.value)
 }
-
-watch(props.filteredPokemons, () => {
-  // Reset search query when items change
-  search.value = ''
-})
 </script>
